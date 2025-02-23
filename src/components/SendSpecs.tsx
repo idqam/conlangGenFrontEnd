@@ -10,6 +10,8 @@ import {
   PayloadSpec,
 } from "@/app/types/SpecPayload";
 
+const API_URL_SUBMIT_SPECS= "https://conlanggenbackend.onrender.com/api/v1/submit-specs";
+
 export const SendSpecs = () => {
   const { activeVowels, activeConsonants } = useIpaSymbols();
   const { inputMapToPhoneme } = useMapping();
@@ -81,7 +83,7 @@ async function submitSpecs(payload: PayloadSpec) {
   console.log("Payload before sending:", JSON.stringify(payload, null, 2));
 
   try {
-    const response = await fetch("http://localhost:8000/api/v1/submit-specs", {
+    const response = await fetch(API_URL_SUBMIT_SPECS, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
