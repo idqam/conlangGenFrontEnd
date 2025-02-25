@@ -16,7 +16,6 @@ export interface GrammarSpec {
   verbConjugation: string;
   tenseAspectMood: string;
   additionalFeatures?: AdditionalFeatureSpec;
-  languageInfluences?: LangInfluencesSpec;
 }
 export interface VowelHarmony {
   isEnabled: boolean;
@@ -32,11 +31,6 @@ export interface AdditionalFeatureSpec {
   politeness: string;
   negation: string;
   pronounSystem: string;
-}
-
-interface LangInfluencesSpec {
-  influencedBy: string;
-  akinTo: string;
 }
 
 export interface PayloadSpec {

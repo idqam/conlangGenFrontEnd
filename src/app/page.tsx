@@ -12,14 +12,18 @@ import {
   LanguageProvider,
   useLanguageContext,
 } from "./context/LanguageContext";
+import { WordProvider } from "./context/WordContext";
 import { MappingProvider } from "./context/MappingContext";
 import { PhonoRulesProvider } from "./context/PhoneRulesContext";
 import { IPA_VOWELS, IPA_CONSONANTS } from "./utils/constants";
 import { SendSpecs } from "@/components/SendSpecs";
+import WordGrid from "@/components/sections/words/WordGrid";
+import PhonologyDisplay from "@/components/sections/words/PhonologyDisplay";
 
 export default function Home() {
   const [navItems, setNavItems] = useState<NavItem[]>([
     { id: "specification", label: "Specification" },
+    { id: "words", label: "Words" },
   ]);
   const [activeTab, setActiveTab] = useState<string>("specification");
 
@@ -29,12 +33,14 @@ export default function Home() {
         <PhonoRulesProvider>
           <MappingProvider>
             <GrammarProvider>
-              <InnerHome
-                navItems={navItems}
-                setNavItems={setNavItems}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
+              <WordProvider>
+                <InnerHome
+                  navItems={navItems}
+                  setNavItems={setNavItems}
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                />
+              </WordProvider>
             </GrammarProvider>
           </MappingProvider>
         </PhonoRulesProvider>
@@ -111,7 +117,12 @@ function InnerHome({
         </>
       )}
 
-      {activeTab === "language" && <></>}
+      {activeTab === "words" && (
+        <div className="flex flex-col">
+          <PhonologyDisplay />
+          <WordGrid />
+        </div>
+      )}
     </div>
   );
 }

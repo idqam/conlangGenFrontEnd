@@ -17,7 +17,7 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ items, activeId, onChange }) => {
   return (
-    <nav className="bg-gray-100 px-4 py-2 shadow-md flex space-x-4 justify-center">
+    <nav className="bg-gray-100 px-4 py-2 shadow-md flex space-x-4 justify-center max-h-12">
       {items.map((item) => (
         <Button
           key={item.id}
