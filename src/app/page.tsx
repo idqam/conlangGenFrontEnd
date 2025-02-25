@@ -1,5 +1,4 @@
 "use client";
-import ButtonGridAnimated from "@/components/animated/ButtonGridAnimated";
 import GrammarConfigurator from "@/components/GrammarConfigurator";
 import NavBar, { NavItem } from "@/components/NavBar";
 import { PhonoRulesForm } from "@/components/PhonoRulesForm";
@@ -19,6 +18,7 @@ import { IPA_VOWELS, IPA_CONSONANTS } from "./utils/constants";
 import { SendSpecs } from "@/components/SendSpecs";
 import WordGrid from "@/components/sections/words/WordGrid";
 import PhonologyDisplay from "@/components/sections/words/PhonologyDisplay";
+import IpaButtonGrid from "@/components/IpaButtonGrid";
 
 export default function Home() {
   const [navItems, setNavItems] = useState<NavItem[]>([
@@ -91,12 +91,9 @@ function InnerHome({
               <header className="text-xl text-black font-semibold mb-0">
                 Phoneme Selection
               </header>
-              <ButtonGridAnimated symbols={IPA_VOWELS} header="Vowels" />
+              <IpaButtonGrid symbols={IPA_VOWELS} header="Vowels" />
               <Separator />
-              <ButtonGridAnimated
-                symbols={IPA_CONSONANTS}
-                header="Consonants"
-              />
+              <IpaButtonGrid symbols={IPA_CONSONANTS} header="Consonants" />
             </div>
 
             <div className="flex flex-col items-center justify-center space-y-7">
