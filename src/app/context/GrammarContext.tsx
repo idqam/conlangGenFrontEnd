@@ -1,37 +1,36 @@
 import { ReactNode, useState, createContext, useContext } from "react";
-import { AdditionalFeatureSpec } from "../types/SpecPayload";
 
-export interface LanguageInfluences {
-  influencedBy: string;
-  akinTo: string;
+export interface AdditionalFeatureSpec {
+  grammaticalGender: string;
+  negation: string;
+  pronounSystem: string;
 }
 
 export interface GrammarFormData {
   morphology: string;
   wordOrder: string;
   nounCases: string;
+  definedNounCases?: string;
   verbConjugation: string;
-  tenseAspectMood: string;
+  verbTenses: string[];
+  verbAspects: string[];
+  verbMoods: string[];
   additionalFeatures: AdditionalFeatureSpec;
-  languageInfluences: LanguageInfluences;
 }
 
 export const initialGrammarFormData: GrammarFormData = {
   morphology: "",
   wordOrder: "",
   nounCases: "",
+  definedNounCases: "",
   verbConjugation: "",
-  tenseAspectMood: "",
+  verbTenses: [],
+  verbAspects: [],
+  verbMoods: [],
   additionalFeatures: {
     grammaticalGender: "",
-    evidentiality: "",
-    politeness: "",
     negation: "",
     pronounSystem: "",
-  },
-  languageInfluences: {
-    influencedBy: "",
-    akinTo: "",
   },
 };
 

@@ -1,6 +1,8 @@
 export interface PhonologySpec {
   activeVowels: string[];
   activeConsonants: string[];
+  vowelFrequencies: Record<string, number>;
+  consonantFrequencies: Record<string, number>;
   mapping: Record<string, string>;
   allowedSyllables: string[];
   transformationRules: string;
@@ -9,14 +11,40 @@ export interface PhonologySpec {
   vowelHarmony: VowelHarmony;
 }
 
-export interface GrammarSpec {
-  morphology: string;
-  wordOrder: string;
-  nounCases: string;
-  verbConjugation: string;
-  tenseAspectMood: string;
-  additionalFeatures?: AdditionalFeatureSpec;
+export interface AdditionalFeatureSpec {
+  grammaticalGender: "1" | "2" | "3" | "4" | "";
+  negation: "infix" | "prefix" | "";
+  pronounSystem: "Inclusive-exclusive" | "Binary" | "Neutral" | "Other" | "";
 }
+
+export interface GrammarFormData {
+  morphology: "Isolating" | "Agglutinative" | "Fusional" | "";
+  wordOrder: "SVO" | "SOV" | "VSO" | "";
+  nounCases: "None" | "Minimal" | "Moderate" | "Rich" | "Define" | "";
+  definedNounCases?: string;
+  verbConjugation: "None" | "Regular" | "Highly Inflected" | "";
+  verbTenses: string[];
+  verbAspects: string[];
+  verbMoods: string[];
+  additionalFeatures: AdditionalFeatureSpec;
+}
+
+export const initialGrammarFormData: GrammarFormData = {
+  morphology: "",
+  wordOrder: "",
+  nounCases: "",
+  definedNounCases: "",
+  verbConjugation: "",
+  verbTenses: [],
+  verbAspects: [],
+  verbMoods: [],
+  additionalFeatures: {
+    grammaticalGender: "",
+    negation: "",
+    pronounSystem: "",
+  },
+};
+
 export interface VowelHarmony {
   isEnabled: boolean;
   inputs: {
@@ -25,16 +53,9 @@ export interface VowelHarmony {
     neutral: string[];
   };
 }
-export interface AdditionalFeatureSpec {
-  grammaticalGender: string;
-  evidentiality: string;
-  politeness: string;
-  negation: string;
-  pronounSystem: string;
-}
 
 export interface PayloadSpec {
   language?: string;
   phonology: PhonologySpec;
-  grammar: GrammarSpec;
+  grammar: GrammarFormData;
 }

@@ -84,7 +84,6 @@ const PhonologyDisplay: React.FC = () => {
   );
 };
 
-// Info Block Component (Handles Display and Hover Effect)
 const InfoBlock: React.FC<{
   title: string;
   data?: string[] | string | null;

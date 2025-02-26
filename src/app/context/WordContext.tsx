@@ -8,6 +8,8 @@ interface VowelHarmonySpec {
 interface PhonologySpec {
   activeVowels?: string[];
   activeConsonants?: string[];
+  vowelFrequencies: Record<string, number>;
+  consonantFrequencies: Record<string, number>;
   allowedSyllables?: string[];
   consonantClusters?: string[];
   vowelClusters?: string[];
