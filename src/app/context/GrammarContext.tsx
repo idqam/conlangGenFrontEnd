@@ -1,12 +1,5 @@
 import { ReactNode, useState, createContext, useContext } from "react";
-
-export interface AdditionalFeatures {
-  grammaticalGender: string;
-  evidentiality: string;
-  politeness: string;
-  negation: string;
-  pronounSystem: string;
-}
+import { AdditionalFeatureSpec } from "../types/SpecPayload";
 
 export interface LanguageInfluences {
   influencedBy: string;
@@ -19,7 +12,7 @@ export interface GrammarFormData {
   nounCases: string;
   verbConjugation: string;
   tenseAspectMood: string;
-  additionalFeatures: AdditionalFeatures;
+  additionalFeatures: AdditionalFeatureSpec;
   languageInfluences: LanguageInfluences;
 }
 

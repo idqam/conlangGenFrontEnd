@@ -2,9 +2,9 @@ import {
   GrammarFormData,
   initialGrammarFormData,
   useGrammarContext,
-  AdditionalFeatures,
   LanguageInfluences,
 } from "@/app/context/GrammarContext";
+import { AdditionalFeatureSpec } from "@/app/types/SpecPayload";
 import React, { useState } from "react";
 
 const GrammarConfigurator = () => {
@@ -176,7 +176,7 @@ const AdditionalFeaturesInput: React.FC<Props> = ({
   formData,
   setFormData,
 }) => {
-  const handleChange = (field: keyof AdditionalFeatures, value: string) => {
+  const handleChange = (field: keyof AdditionalFeatureSpec, value: string) => {
     setFormData({
       ...formData,
       additionalFeatures: { ...formData.additionalFeatures, [field]: value },
