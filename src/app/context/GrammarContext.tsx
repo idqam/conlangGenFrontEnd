@@ -1,21 +1,10 @@
 import { ReactNode, useState, createContext, useContext } from "react";
+import { GrammarFormData } from "../types/SpecPayload";
 
 export interface AdditionalFeatureSpec {
   grammaticalGender: string;
   negation: string;
   pronounSystem: string;
-}
-
-export interface GrammarFormData {
-  morphology: string;
-  wordOrder: string;
-  nounCases: string;
-  definedNounCases?: string;
-  verbConjugation: string;
-  verbTenses: string[];
-  verbAspects: string[];
-  verbMoods: string[];
-  additionalFeatures: AdditionalFeatureSpec;
 }
 
 export const initialGrammarFormData: GrammarFormData = {

@@ -119,12 +119,13 @@ export function PhonoTestSpec(): PhonologySpec {
     transformationRules:
       "[θ > t / _C] [ð > d / V_V] [ʃ > s / #_] [ʒ > zh / _V] [ʧ > ch / _#] [ʤ > j / V_]",
     consonantClusters:
-      "st, pr, kt, fl, gr, skr, sp, tr,bl,dr,str, spl,scr,thr,shr,strp,splr,scrpt,strch",
+      "tʂʧ, vʂj, ʂɡk, ʔʐh, ʃʒn, shʂ, θʔɣ, ŋθd, ðbʃ, wjz, ɣtʂ, ɣpɡ, ʒɡm, ŋrʃ, bɡb, ððg, mɾð, jŋʧ, ʧth, ʂsʂ, gʃʔ, ʤvʧ, dvð, mjj, ɾzg",
 
-    vowelClusters: "ai, oi, ea, ou, ui, ie, ei, oa, aou, eai, iou, uai,oei",
+    vowelClusters:
+      "ɑæ, ɑɔ, ʊe, ɯæ, ʌʌ, ɪo, ʌɯ, ɒy, ɑɒ, oɯ, ʌɒʌ, ɔøy, ʌoɛ, ooy, ɔøe, ɔɔɒ, ɑuɒ, ɪoɯ, ɯiɒ, uoe, ɔøʌæ, oʊoɯ, øʊɪɪ, yɔʊe, æɛʊæ, øoʊɛ, ɯiyɔ, euɒɛ, ɪɯiæ, iɪɑɯ",
 
     vowelHarmony: {
-      isEnabled: true,
+      isEnabled: false,
       inputs: {
         front: ["i", "e", "ɛ", "æ", "ɪ", "ø", "y"],
         back: ["o", "u", "ʊ", "ʌ", "ɔ"],
