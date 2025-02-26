@@ -19,11 +19,14 @@ import { SendSpecs } from "@/components/SendSpecs";
 import WordGrid from "@/components/sections/words/WordGrid";
 import PhonologyDisplay from "@/components/sections/words/PhonologyDisplay";
 import IpaButtonGrid from "@/components/IpaButtonGrid";
+import { LexiconProvider } from "./context/LexiconContext";
+import { GrammarDisplay } from "@/components/sections/words/GrammarDisplay";
 
 export default function Home() {
   const [navItems, setNavItems] = useState<NavItem[]>([
     { id: "specification", label: "Specification" },
     { id: "words", label: "Words" },
+    { id: "grammar", label: "Grammar" },
   ]);
   const [activeTab, setActiveTab] = useState<string>("specification");
 
@@ -34,12 +37,14 @@ export default function Home() {
           <MappingProvider>
             <GrammarProvider>
               <WordProvider>
-                <InnerHome
-                  navItems={navItems}
-                  setNavItems={setNavItems}
-                  activeTab={activeTab}
-                  setActiveTab={setActiveTab}
-                />
+                <LexiconProvider>
+                  <InnerHome
+                    navItems={navItems}
+                    setNavItems={setNavItems}
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                  />
+                </LexiconProvider>
               </WordProvider>
             </GrammarProvider>
           </MappingProvider>
@@ -115,11 +120,13 @@ function InnerHome({
       )}
 
       {activeTab === "words" && (
-        <div className="flex flex-col">
+        <div className="flex">
           <PhonologyDisplay />
+
           <WordGrid />
         </div>
       )}
+      {activeTab === "grammar" && <GrammarDisplay />}
     </div>
   );
 }

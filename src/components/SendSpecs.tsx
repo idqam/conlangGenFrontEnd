@@ -159,7 +159,7 @@ export const SendSpecs = () => {
   async function submitSpecs(payload: PayloadSpec) {
     //change api url to prod after testing
     try {
-      const response = await fetch(API_URL_SUBMIT_SPECS, {
+      const response = await fetch(TEST_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

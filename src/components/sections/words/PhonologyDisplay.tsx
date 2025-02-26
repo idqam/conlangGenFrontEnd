@@ -84,19 +84,19 @@ const PhonologyDisplay: React.FC = () => {
   );
 };
 
-const InfoBlock: React.FC<{
+const form1 = `text-gray-300 group-hover:text-white transition-all group-hover:shadow-md group-hover:bg-gradient-to-r from-amber-300 via-blue-400 to-red-400 p-2 rounded-lg`;
+const form2 = `text-white-300  group-hover:text-white transition-all group-hover:shadow-md p-2 rounded-lg`;
+export const InfoBlock: React.FC<{
   title: string;
   data?: string[] | string | null;
-}> = ({ title, data }) => {
+  normal?: boolean;
+}> = ({ title, data, normal }) => {
   if (!data || (Array.isArray(data) && data.length === 0)) return null;
 
   return (
     <div className="group">
       <h3 className="font-semibold text-lg">{title}:</h3>
-      <div
-        className="text-gray-300 group-hover:text-white transition-all group-hover:shadow-md 
-        group-hover:bg-gradient-to-r from-amber-300 via-blue-400 to-red-400 p-2 rounded-lg"
-      >
+      <div className={normal ? form2 : form1}>
         {Array.isArray(data) ? data.join(", ") : data}
       </div>
     </div>

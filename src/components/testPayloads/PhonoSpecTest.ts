@@ -95,7 +95,7 @@ export function PhonoTestSpec(): PhonologySpec {
       ŋ: "ng",
       ɾ: "r",
       z: "z",
-      ʔ: "'",
+      ʔ: "q",
       ɣ: "gh",
       ʂ: "sh",
       ʐ: "zh",
