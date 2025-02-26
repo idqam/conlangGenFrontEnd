@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  GrammarFormData,
   initialGrammarFormData,
   useGrammarContext,
 } from "@/app/context/GrammarContext";
+import { GrammarFormData } from "@/app/types/SpecPayload";
 import React, { useState } from "react";
 
 const GrammarConfigurator = () => {
