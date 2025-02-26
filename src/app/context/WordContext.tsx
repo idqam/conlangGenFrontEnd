@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
+import { GrammarFormData } from "../types/SpecPayload";
 
 interface VowelHarmonySpec {
   isEnabled: boolean;
@@ -18,19 +19,10 @@ interface PhonologySpec {
   vowelHarmony?: VowelHarmonySpec;
 }
 
-interface GrammarSpec {
-  morphology?: string;
-  wordOrder?: string;
-  nounCases?: string;
-  verbConjugation?: string;
-  tenseAspectMood?: string;
-  additionalFeatures?: Record<string, string>;
-}
-
 interface PayloadSpec {
   language?: string;
   phonology?: PhonologySpec;
-  grammar?: GrammarSpec;
+  grammar?: GrammarFormData;
 }
 
 interface WordContextType {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGrammarContext } from "@/app/context/GrammarContext";
 import { useIpaSymbols } from "@/app/context/IpaSymbolContext";
@@ -158,7 +159,7 @@ export const SendSpecs = () => {
   async function submitSpecs(payload: PayloadSpec) {
     //change api url to prod after testing
     try {
-      const response = await fetch(TEST_API, {
+      const response = await fetch(API_URL_SUBMIT_SPECS, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
